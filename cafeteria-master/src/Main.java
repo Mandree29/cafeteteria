@@ -189,6 +189,13 @@ public class Main {
         B_geladas.setLayout(null);
         B_geladas.setVisible(false);
 
+        // criando o label do pedido de Bebidas Geladas
+        JLabel pedido2 = new JLabel("Bebidas Geladas");
+        Font fon3 = new Font("Arial", Font.BOLD, 24);
+        pedido2.setFont(fon3);
+        pedido2.setBounds(58,50,200, 100);
+        pedido2.setForeground(Color.BLACK);
+
         // ADICIONANDO OS BUTÕES DE NAVEGAÇÃO BEBIDAS GELADAS
 
         JButton Bebidas_Quentes2 = new JButton("B. quentes");
@@ -218,6 +225,7 @@ public class Main {
         Font novaFonte13 = fonteAtual.deriveFont(12f); // Define o tamanho da fonte para 20
         lanche.setFont(novaFonte13);
 
+        B_geladas.add(pedido2);
         B_geladas.add(Bebidas_Quentes2);
         B_geladas.add(Bebidas_Geladas2);
         B_geladas.add(lanche2);
@@ -227,9 +235,40 @@ public class Main {
         // PAINEL MENU LANCHES
         JPanel Lanches_panel = new JPanel();
         Lanches_panel.setBounds(884, 0, 300, 700);
-        Lanches_panel.setBackground(Color.blue);
+        Lanches_panel.setBackground(Color.darkGray);
         Lanches_panel.setLayout(null);
         Lanches_panel.setVisible(false);
+
+        JButton Bebidas_Quentes3 = new JButton("B. quentes");
+        Bebidas_Quentes3.setBounds(0, 610, 100, 50);
+        Bebidas_Quentes3.setBackground(Color.GRAY);
+        Bebidas_Quentes3.setFocusPainted(false);
+        Bebidas_Quentes3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Font fonteAtual14 = Bebidas_Quentes2.getFont();
+        Font novaFonte14 = fonteAtual.deriveFont(12f); // Define o tamanho da fonte para 20
+        Bebidas_Quentes.setFont(novaFonte14);
+
+        JButton Bebidas_Geladas3 = new JButton("B. geladas");
+        Bebidas_Geladas3.setBounds(100, 610, 100, 50);
+        Bebidas_Geladas3.setBackground(Color.GRAY);
+        Bebidas_Geladas3.setFocusPainted(false);
+        Bebidas_Geladas3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Font fonteAtual15 = Bebidas_Geladas.getFont();
+        Font novaFonte15 = fonteAtual.deriveFont(12f); // Define o tamanho da fonte para 20
+        Bebidas_Geladas.setFont(novaFonte15);
+
+        JButton lanche3 = new JButton("lanche");
+        lanche3.setBounds(200, 610, 100, 50);
+        lanche3.setBackground(Color.GRAY);
+        lanche.setFocusPainted(false);
+        lanche3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Font fonteAtual16 = lanche.getFont();
+        Font novaFonte16 = fonteAtual.deriveFont(12f); // Define o tamanho da fonte para 20
+        lanche.setFont(novaFonte16);
+
+        Lanches_panel.add(Bebidas_Quentes3);
+        Lanches_panel.add(Bebidas_Geladas3);
+        Lanches_panel.add(lanche3);
 
         JPanel panel2 = new JPanel();
         panel2.setBounds(120, 160, 680, 320);
@@ -413,6 +452,34 @@ public class Main {
         });
 
         lanche2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.setVisible(false);
+                Lanches_panel.setVisible(true);
+                B_geladas.setVisible(false);
+            }
+        });
+
+
+        Bebidas_Quentes3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.setVisible(true);
+                Lanches_panel.setVisible(false);
+                B_geladas.setVisible(false);
+            }
+        });
+
+        Bebidas_Geladas3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.setVisible(false);
+                Lanches_panel.setVisible(false);
+                B_geladas.setVisible(true);
+            }
+        });
+
+        lanche3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
