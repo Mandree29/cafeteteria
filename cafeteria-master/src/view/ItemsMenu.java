@@ -5,6 +5,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ItemsMenu extends JButton {
 
@@ -32,13 +34,34 @@ public class ItemsMenu extends JButton {
 
                 // Calcula a soma dos valores na tabela
                 double soma = ItemsMenu.somarValores(model);
-                System.out.println("Soma total: " + soma);
+
 
                 // Atualiza o valor da label do subtotal
                 subtotalLabel.setText("Subtotal: " + String.format("%.2f", soma)); // Formata para duas casas decimais
             }
         });
+
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                ItemsMenu.this.setBackground(Color.lightGray);
+                ItemsMenu.this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            }
+        });
+
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                ItemsMenu.this.setBackground(Color.gray);
+            }
+        });
+
+
+
     }
+
 
     // Método para calcular a soma dos valores na tabela
     public static double somarValores(DefaultTableModel model) {
@@ -51,6 +74,13 @@ public class ItemsMenu extends JButton {
         }
         return soma;
     }
+
+
+
+
+
+
+
 }
 
 

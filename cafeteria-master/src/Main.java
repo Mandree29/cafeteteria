@@ -1,4 +1,5 @@
 import view.BotaoNav;
+import view.BotoesCaixa;
 import view.ItemsMenu;
 import view.painel_lateral;
 
@@ -55,11 +56,17 @@ public class Main {
         data.setBounds(20,10,200,16);
 
         // criando o labe do pedido
-        JLabel pedido = new JLabel("Bebidas Quentes");
-        Font fon2 = new Font("Arial", Font.BOLD, 24);
-        pedido.setFont(fon2);
-        pedido.setBounds(58,50,200, 100);
-        pedido.setForeground(Color.BLACK);
+
+
+        ImageIcon bebida_quente_png = new ImageIcon("sementes_cafe.png");
+        Image cafe = bebida_quente_png.getImage();
+        Image cafe_remimensionado = cafe.getScaledInstance(88,88, Image.SCALE_SMOOTH);
+        ImageIcon cafeicone = new ImageIcon(cafe_remimensionado);
+        JLabel pedido = new JLabel(cafeicone);
+        pedido.setBounds(58,40,200, 100);
+
+
+        // Cria o JLabel e define o ícone da imagem
 
         JPanel panel2 = new JPanel();
         panel2.setBounds(120, 160, 680, 320);
@@ -81,28 +88,19 @@ public class Main {
 
         JPanel panel3 = new JPanel();
         panel3.setBounds(120, 510, 680, 90);
-        panel3.setBackground(Color.decode("#2B2B2B"));
+        panel3.setBackground(new Color(240,240,240,255));
         panel3.setLayout(null);
 
         JLabel st = new JLabel("Subtotal = 0.0");
         Font font2 = new Font("Arial", Font.BOLD, 20);
         st.setFont(font2);
-        st.setForeground(Color.WHITE);
+        st.setForeground(Color.darkGray);
         st.setBounds(250, 32, 200, 30);
 
-        JButton refazer = new JButton("REFAZER");
-        refazer.setBounds(20, 24, 100, 50);
-        refazer.setBackground(Color.decode("#AFAEAE"));
-        refazer.setForeground(Color.black);
-        refazer.setFocusPainted(false);
-        refazer.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        JButton fechar = new JButton("FECHAR");
-        fechar.setBounds(540, 24, 100, 50);
-        fechar.setBackground(Color.decode("#AFAEAE"));
-        fechar.setForeground(Color.black);
-        fechar.setFocusPainted(false);
-        fechar.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        BotoesCaixa refazer = new BotoesCaixa("Refazer", 20, tabela,st);
+        BotoesCaixa fechar = new BotoesCaixa("Fechar", 540, tabela, st);
+
 
         panel3.add(st);
         panel3.add(refazer);
@@ -138,11 +136,12 @@ public class Main {
         painel1.add(lanche_butao);
 
 
-        JLabel pedido2 = new JLabel("Bebidas Geladas");
-        Font fon3 = new Font("Arial", Font.BOLD, 24);
-        pedido2.setFont(fon3);
-        pedido2.setBounds(58,50,200, 100);
-        pedido2.setForeground(Color.BLACK);
+        ImageIcon bebidageladapng = new ImageIcon("bebida_gelada.png");
+        Image gelada = bebidageladapng.getImage();
+        Image geladapreparada = gelada.getScaledInstance(80,80, Image.SCALE_SMOOTH);
+        ImageIcon geladaicone = new ImageIcon(geladapreparada);
+        JLabel pedido2 = new JLabel(geladaicone);
+        pedido2.setBounds(58,40,200, 100);
 
         BotaoNav bebidaQuente2 = new BotaoNav("Bebida Quente", 0, painel1,painel2, painel3);
         BotaoNav bebidaGelada2 = new BotaoNav("Bebida Gelada", 100, painel1,painel2, painel3);
@@ -159,11 +158,18 @@ public class Main {
         BotaoNav lanche_butao3 = new BotaoNav("Lanche", 200, painel1,painel2, painel3);
 
         // criando o labe do pedido
-        JLabel pedido3 = new JLabel("Lanche");
-        Font fon4 = new Font("Arial", Font.BOLD, 24);
-        pedido3.setFont(fon4);
-        pedido3.setBounds(58,50,200, 100);
-        pedido3.setForeground(Color.BLACK);
+//        JLabel pedido3 = new JLabel("Lanche");
+//        Font fon4 = new Font("Arial", Font.BOLD, 24);
+//        pedido3.setFont(fon4);
+//        pedido3.setBounds(58,50,200, 100);
+//        pedido3.setForeground(Color.BLACK);
+
+        ImageIcon comida = new ImageIcon("comida.png");
+        Image croassant = comida.getImage();
+        Image lanche = croassant.getScaledInstance(80,80, Image.SCALE_SMOOTH);
+        ImageIcon lancheicone = new ImageIcon(lanche);
+        JLabel pedido3 = new JLabel(lancheicone);
+        pedido3.setBounds(58,40,200, 100);
 
         painel3.add(pedido3);
         painel3.add(bebidaQuente3);
@@ -184,45 +190,10 @@ public class Main {
         // Tornar o JFrame visível
         frame.setVisible(true);
 
-        refazer.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                model.setRowCount(0); // Limpa todas as linhas da tabela
-                st.setText("Subtotal = 0.0"); // Zera o subtotal
-            }
-        });
 
     }
 
-    public static double somarValores(DefaultTableModel model) {
-        double soma = 0.0;
 
-        // Percorre todas as linhas da tabela
-        for (int i = 0; i < model.getRowCount(); i++) {
-            Object valor = model.getValueAt(i, 1); // Acessa a coluna de valor
-
-            // Verifica se o valor é um Float ou pode ser convertido
-            if (valor instanceof Number) {
-                soma += ((Number) valor).doubleValue(); // Adiciona à soma
-            } else {
-                try {
-                    // Tenta converter para Double se for uma String
-                    soma += Double.parseDouble(valor.toString());
-                } catch (NumberFormatException e) {
-                    // Se não for um número, ignora
-                    System.out.println("Valor não numérico encontrado: " + valor);
-                }
-            }
-        }
-
-        return soma;
-    }
-
-    // Método para atualizar o subtotal
-    public static void atualizarSubtotal(DefaultTableModel model, JLabel st) {
-        double subtotal = somarValores(model);
-        st.setText("Subtotal = " + subtotal);
-    }
 
 
 }

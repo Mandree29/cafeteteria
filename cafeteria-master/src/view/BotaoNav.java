@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class BotaoNav extends JButton {
 
@@ -36,6 +38,22 @@ public class BotaoNav extends JButton {
                     panel2.setVisible(false);
                     panel3.setVisible(true);
                 }
+            }
+        });
+
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                BotaoNav.this.setBackground(Color.lightGray);
+            }
+        });
+
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                BotaoNav.this.setBackground(Color.gray);
             }
         });
     }
