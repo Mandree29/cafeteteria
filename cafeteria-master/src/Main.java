@@ -143,19 +143,33 @@ public class Main {
         JLabel pedido2 = new JLabel(geladaicone);
         pedido2.setBounds(58,40,200, 100);
 
+        ItemsMenu refrigerante = new ItemsMenu("Refrigerante", 20,160, tabela, 5.00, st);
+        ItemsMenu agua = new ItemsMenu("Agua", 158, 160,tabela,4.50, st);
+        ItemsMenu limonada = new ItemsMenu("Limonada",20, 240, tabela, 6.70, st);
+        ItemsMenu cafe_gelado = new ItemsMenu("Cafe Gelado", 158, 240, tabela, 14.50, st);
+        ItemsMenu frapuccino = new ItemsMenu("Frapuccino", 20, 320, tabela, 18.80, st);
+        ItemsMenu smoothie = new ItemsMenu("Smothie", 158, 320, tabela, 5.95, st);
+        ItemsMenu cha_gelado = new ItemsMenu("cafe com leite", 20, 400, tabela, 9.90, st);
+        ItemsMenu milkshake = new ItemsMenu("milkshake", 158, 400, tabela, 14.00, st);
         BotaoNav bebidaQuente2 = new BotaoNav("Bebida Quente", 0, painel1,painel2, painel3);
         BotaoNav bebidaGelada2 = new BotaoNav("Bebida Gelada", 100, painel1,painel2, painel3);
         BotaoNav lanche_butao2 = new BotaoNav("Lanche", 200, painel1,painel2, painel3);
 
         painel2.add(pedido2);
+        painel2.add(refrigerante);
+        painel2.add(agua);
+        painel2.add(limonada);
+        painel2.add(cafe_gelado);
+        painel2.add(frapuccino);
+        painel2.add(smoothie);
+        painel2.add(cha_gelado);
+        painel2.add(milkshake);
         painel2.add(bebidaQuente2);
         painel2.add(bebidaGelada2);
         painel2.add(lanche_butao2);
 
 
-        BotaoNav bebidaQuente3 = new BotaoNav("Bebida Quente", 0, painel1,painel2, painel3);
-        BotaoNav bebidaGelada3 = new BotaoNav("Bebida Gelada", 100, painel1,painel2, painel3);
-        BotaoNav lanche_butao3 = new BotaoNav("Lanche", 200, painel1,painel2, painel3);
+
 
         // criando o labe do pedido
 //        JLabel pedido3 = new JLabel("Lanche");
@@ -170,13 +184,30 @@ public class Main {
         ImageIcon lancheicone = new ImageIcon(lanche);
         JLabel pedido3 = new JLabel(lancheicone);
         pedido3.setBounds(58,40,200, 100);
-
+//
+        ItemsMenu pao_de_queijo = new ItemsMenu("Pao de queijo", 20 ,160, tabela, 6.00, st);
+        ItemsMenu sanduiche = new ItemsMenu("Sanduiche", 158, 160,tabela, 15.50, st);
+        ItemsMenu torrada = new ItemsMenu("torrada",20, 240, tabela, 5.70, st);
+        ItemsMenu bolo = new ItemsMenu("Bolo", 158, 240, tabela, 10.50, st);
+        ItemsMenu muffin = new ItemsMenu("Muffin", 20, 320, tabela, 8.80, st);
+        ItemsMenu salada = new ItemsMenu("Salada", 158, 320, tabela, 12.00, st);
+        ItemsMenu quiche = new ItemsMenu("Quiche", 20, 400, tabela, 14.00, st);
+        ItemsMenu croissant = new ItemsMenu("Croissant", 158, 400, tabela, 10.00, st);
+        BotaoNav bebidaQuente3 = new BotaoNav("Bebida Quente", 0, painel1,painel2, painel3);
+        BotaoNav bebidaGelada3 = new BotaoNav("Bebida Gelada", 100, painel1,painel2, painel3);
+        BotaoNav lanche_butao3 = new BotaoNav("Lanche", 200, painel1,painel2, painel3);
         painel3.add(pedido3);
+        painel3.add(pao_de_queijo);
+        painel3.add(sanduiche);
+        painel3.add(torrada);
+        painel3.add(bolo);
+        painel3.add(muffin);
+        painel3.add(salada);
+        painel3.add(quiche);
+        painel3.add(croissant);
         painel3.add(bebidaQuente3);
         painel3.add(bebidaGelada3);
         painel3.add(lanche_butao3);
-
-
 
         // Adicionar os componentes ao JFrame
         frame.add(painel1);
