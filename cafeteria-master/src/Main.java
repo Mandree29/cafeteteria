@@ -98,8 +98,8 @@ public class Main {
         st.setBounds(250, 32, 200, 30);
 
 
-        BotoesCaixa refazer = new BotoesCaixa("Refazer", 20, tabela,st);
-        BotoesCaixa fechar = new BotoesCaixa("Fechar", 540, tabela, st);
+        BotoesCaixa refazer = new BotoesCaixa("Refazer", 20, tabela,st, frame);
+        BotoesCaixa fechar = new BotoesCaixa("Fechar", 540, tabela, st, frame);
 
 
         panel3.add(st);
